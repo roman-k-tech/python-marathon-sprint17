@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Order
 
 
@@ -13,3 +13,7 @@ def order_item(request, order_id):
                }
 
     return render(request, 'order/order_details.html', context)
+
+def delete_order(request, order_id):
+    Order.delete_by_id(order_id)
+    return redirect('orders')

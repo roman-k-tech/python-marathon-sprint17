@@ -13,6 +13,7 @@
             <td>Order creation time</td>
             <td>Should be returned at</td>
             <td>Returned at</td>
+            <td></td>
         </tr >
         {% if orders %}
             {% for order in orders %}
@@ -27,6 +28,7 @@
                     {% else %}
                         <td><b>Not returned!</b></td>
                     {% endif %}
+                    <td><a href="/orders/delete/{{ order.id }}/">Delete</a></td>
                 </tr>
             {% endfor %}
         {% else %}

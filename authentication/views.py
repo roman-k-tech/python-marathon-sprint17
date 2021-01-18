@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import CustomUser
 from order.models import Order
 
@@ -14,3 +14,9 @@ def user_item(request, user_id):
                'orders': Order.objects.filter(user=user_id) }
 
     return render(request, 'authentication/user_details.html', context)
+
+
+def delete_user(request, user_id):
+    CustomUser.delete_by_id(user_id)
+    return redirect('users')
+
