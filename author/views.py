@@ -26,7 +26,7 @@ def create_author(request):
         else:
             error = 'Form is incorrect!'
 
-    context = {'new_author': new_author, 'error': error}
+    context = {'author': new_author, 'error': error}
     return render(request, 'author/create_author.html', context)
 
 
@@ -42,7 +42,7 @@ def update_author(request, pk):
         else:
             error = 'Form is incorrect'
 
-    context = {'new_author': updated_author, 'error': error}
+    context = {'author': updated_author, 'error': error}
     return render(request, 'author/create_author.html', context)
 
 

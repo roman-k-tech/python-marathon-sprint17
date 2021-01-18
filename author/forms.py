@@ -1,5 +1,6 @@
-from django.forms import ModelForm, TextInput
+from django.forms import ModelForm, TextInput, SelectMultiple
 from .models import Author
+from book.models import Book
 
 
 class AuthorForm(ModelForm):
@@ -10,5 +11,5 @@ class AuthorForm(ModelForm):
             "name": TextInput(attrs={'class': 'form-control', 'placeholder': 'first name'}),
             "surname": TextInput(attrs={'class': 'form-control', 'placeholder': 'surname'}),
             "patronymic": TextInput(attrs={'class': 'form-control', 'placeholder': 'patronymic'}),
-            "books": TextInput(attrs={ 'class': 'form-control', 'placeholder': 'books' })
+            #            "books": SelectMultiple(attrs={ 'class': 'form-control', 'placeholder': 'books' })
         }

@@ -8,16 +8,14 @@
     <small><b>Author Details</b></small>
         <form method = "POST"> {% csrf_token %}
             <small>author name:</small>
-            {{new_author.name}}<br>
+            {{author.name}}<br>
             <small>author surname:</small>
-            {{new_author.surname}}<br>
+            {{author.surname}}<br>
             <small>author patronymic:</small>
-            {{new_author.patronymic}}<br>
-            <small>author books:</small>
-            {{new_author.book}}<br>
-            <input type='submit' value='Submit'/>
-<!--        <button type="submit" class="btn btn-success">Add</button>
-        <span>{{error}}</span> -->
+            {{author.patronymic}}<br>
+<!--            <small>author books:</small>-->
+<!--            {{author.books}}<br>-->
+<!--            <input type='submit' value='Submit'/>-->
             {{ error }}
         </form>
 {% endblock %}

@@ -12,7 +12,6 @@
     {% if books %}
         {% for book in books %}
             <a href="{% url 'book_item' book.id %}"> {{ book.name }} </a>
-<!--                <a href='book_item' target="_blank"> {{ el.title }} </a>  -->
             <br>
         {% endfor %}
     {% else %}
