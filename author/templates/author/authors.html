@@ -7,11 +7,13 @@
 {% block content %}
     {% if authors %}
         {% for author in authors %}
-            <a href="{% url 'author_item' author.id %}"> {{ author.name }} {{ author.surname }} </a>
+            <a href="{% url 'author_item' author.id %}"> <small>{{ forloop.counter }}</small>. {{ author.name }} {{ author.surname }} </a>
 <!--            <a href='book_item' target="_blank"> {{ el.title }} </a>  -->
             <br>
         {% endfor %}
     {% else %}
-        <p>No books!</p>
+        <p>No authors!</p>
     {% endif %}
+
+    <br><a href="{% url 'create_author' %}"> <small><b>Add new author</b></small></a>
 {% endblock %}

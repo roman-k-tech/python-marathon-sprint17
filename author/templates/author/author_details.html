@@ -9,12 +9,19 @@
     author name: <b>{{ name }} {{ surname }}</b><br>
 
     books:
-    {% for book in books %}
-        <a href="{% url 'book_item' book.id %}"> {{ book.name }} </a>
-<!--            <a href='book_item' target="_blank"> {{ el.title }} </a>  -->
-        <br>
-    {% endfor %}
+    {% if books %}
+        {% for book in books %}
+            <a href="{% url 'book_item' book.id %}"> {{ book.name }} </a>
+<!--                <a href='book_item' target="_blank"> {{ el.title }} </a>  -->
+            <br>
+        {% endfor %}
+    {% else %}
+        No books.
+    {%endif%}
 
     <br><small>DB id: {{ id }}</small>
+
+    <br><br><a href="{% url 'delete_author' id %}"> <small><b>Delete author</b></small></a>
+    <br><a href="{% url 'update_author' id %}"> <small><b>Change details</b></small></a>
 
 {% endblock %}
