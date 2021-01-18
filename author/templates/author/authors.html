@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Author List
+{% endblock %}
+
+{% block content %}
+    {% if authors %}
+        {% for author in authors %}
+            <a href="{% url 'author_item' author.id %}"> {{ author.name }} {{ author.surname }} </a>
+<!--            <a href='book_item' target="_blank"> {{ el.title }} </a>  -->
+            <br>
+        {% endfor %}
+    {% else %}
+        <p>No books!</p>
+    {% endif %}
+{% endblock %}
