@@ -14,6 +14,7 @@
             <td>Should be returned at</td>
             <td>Returned at</td>
             <td></td>
+            <td></td>
         </tr >
         {% if orders %}
             {% for order in orders %}
@@ -28,6 +29,7 @@
                     {% else %}
                         <td><b>Not returned!</b></td>
                     {% endif %}
+                    <td><a href="/orders/form/{{ order.id }}/">Update</a></td>
                     <td><a href="/orders/delete/{{ order.id }}/">Delete</a></td>
                 </tr>
             {% endfor %}
@@ -35,4 +37,5 @@
             <p>No orders!</p>
         {% endif %}
     </table>
+<a href="/orders/form">Add New</a>
 {% endblock %}
