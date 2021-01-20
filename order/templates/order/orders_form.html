@@ -11,7 +11,7 @@
     {% csrf_token %}
       {{ form.user }}<br>
       {{ form.book }}<br>
-      {{form.plated_end_at}} <br>
+      {{form.plated_end_at}}  {{form.end_at}} <br>
     <p></p>
     <button class="w-30 btn btn-primary" type="submit">Submit</button>
 

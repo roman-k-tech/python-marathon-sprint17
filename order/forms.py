@@ -7,11 +7,12 @@ from django import forms
 class OrderForm(ModelForm):
     class Meta:
         model = Order
-        fields = ("user", "book", "plated_end_at")
+        fields = ('user', 'book', 'plated_end_at', 'end_at')
         widgets = {
             "user": Select(attrs={'class': 'form-control', 'placeholder': 'Select User'}),
             "book": Select(attrs={'class': 'form-control', 'placeholder': 'Select Book'}),
-            "plated_end_at": DateTimeInput(attrs={'class': 'form-control', 'type':'datetime-local'})
+            "plated_end_at": DateTimeInput(format='%Y-%m-%dT%H:%M:%S', attrs={'type': 'datetime-local', 'placeholder': 'book should be returned at'}),
+            "end_at": DateTimeInput(format='%Y-%m-%dT%H:%M:%S', attrs={'type': 'datetime-local', 'placeholder': 'book is returned at'})
         }
 
 
