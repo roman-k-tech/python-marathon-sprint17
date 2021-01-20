@@ -21,6 +21,9 @@ def delete_user(request, user_id):
     CustomUser.delete_by_id(user_id)
     return redirect('users')
 
+def user_profile(request):
+    return redirect('users')
+
 
 
 def register(request):
@@ -37,3 +40,23 @@ def register(request):
     else:
         user_form = UserRegistrationForm()
     return render(request, 'authentication/register.html', {'user_form': user_form})
+
+
+def update_user(request,user_id):
+    if request.method == "GET":
+        if user_id == 0:
+            form = UserRegistrationForm()
+        else:
+            user = CustomUser.objects.get(pk=user_id)
+            form = UserRegistrationForm(instance=user)
+        return render(request, "authentication/update_user.html", {"user_form":form})
+    else:
+        if user_id == 0:
+            form = UserRegistrationForm(request.POST)
+        else:
+            user = CustomUser.objects.get(pk=user_id)
+            form = UserRegistrationForm(request.POST, instance=user)
+        if form.is_valid:
+            form.save()
+            return redirect(f"/users/{user_id}/")
+
